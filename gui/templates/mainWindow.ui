@@ -257,6 +257,7 @@ QGroupBox::title {
         <property name="frameShadow">
          <enum>QFrame::Plain</enum>
         </property>
+        <layout class="QGridLayout" name="gridLayout_4"/>
        </widget>
       </item>
       <item row="0" column="0" colspan="3">
@@ -434,7 +435,7 @@ QGroupBox::title {
      <x>0</x>
      <y>0</y>
      <width>1645</width>
-     <height>27</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuApplication">

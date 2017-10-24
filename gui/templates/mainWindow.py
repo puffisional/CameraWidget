@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'mainWindow.ui'
+# Form implementation generated from reading ui file 'gui/templates/mainWindow.ui'
 #
 # Created by: PyQt4 UI code generator 4.11.4
 #
@@ -148,6 +148,8 @@ class Ui_MainWindow(object):
         self.cameraViewFrame.setFrameShape(QtGui.QFrame.Box)
         self.cameraViewFrame.setFrameShadow(QtGui.QFrame.Plain)
         self.cameraViewFrame.setObjectName(_fromUtf8("cameraViewFrame"))
+        self.gridLayout_4 = QtGui.QGridLayout(self.cameraViewFrame)
+        self.gridLayout_4.setObjectName(_fromUtf8("gridLayout_4"))
         self.gridLayout.addWidget(self.cameraViewFrame, 1, 0, 1, 3)
         self.horizontalLayout_5 = QtGui.QHBoxLayout()
         self.horizontalLayout_5.setObjectName(_fromUtf8("horizontalLayout_5"))
@@ -228,7 +230,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addLayout(self.gridLayout_2)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1645, 27))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1645, 25))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuApplication = QtGui.QMenu(self.menubar)
         self.menuApplication.setObjectName(_fromUtf8("menuApplication"))
