@@ -198,6 +198,8 @@ class Ui_MainWindow(object):
         self.graphViewFrame.setFrameShape(QtGui.QFrame.Box)
         self.graphViewFrame.setFrameShadow(QtGui.QFrame.Plain)
         self.graphViewFrame.setObjectName(_fromUtf8("graphViewFrame"))
+        self.gridLayout_5 = QtGui.QGridLayout(self.graphViewFrame)
+        self.gridLayout_5.setObjectName(_fromUtf8("gridLayout_5"))
         self.gridLayout_2.addWidget(self.graphViewFrame, 1, 0, 1, 1)
         self.horizontalLayout_9 = QtGui.QHBoxLayout()
         self.horizontalLayout_9.setObjectName(_fromUtf8("horizontalLayout_9"))

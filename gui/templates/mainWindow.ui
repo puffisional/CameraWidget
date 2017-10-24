@@ -357,6 +357,7 @@ QGroupBox::title {
         <property name="frameShadow">
          <enum>QFrame::Plain</enum>
         </property>
+        <layout class="QGridLayout" name="gridLayout_5"/>
        </widget>
       </item>
       <item row="0" column="0">
