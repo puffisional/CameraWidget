@@ -19,3 +19,4 @@ if __name__ == '__main__':
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     
     app.exec_()
+    
