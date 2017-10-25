@@ -15,7 +15,7 @@ if __name__ == '__main__':
     win.show()
     
     app.connect(app, SIGNAL("aboutToQuit()"), win.onCloseAccept)
-    signal.signal(signal.SIGINT, lambda *args, **kwargs: w.close())
+    signal.signal(signal.SIGINT, lambda *args, **kwargs: win.close())
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     
     app.exec_()

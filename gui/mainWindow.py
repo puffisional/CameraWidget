@@ -1,17 +1,51 @@
-from PyQt4.Qt import QFileDialog, QMainWindow
+from __future__ import print_function, division
+
+from PyQt4.Qt import QFileDialog, QMainWindow, pyqtSignal, pyqtSlot
 import os
 from PyQt4.QtGui import QApplication
 from gui.templates.mainWindow import Ui_MainWindow
+import pyqtgraph as pg
+from PIL import Image
+import numpy as np
 
 class MainWindow(Ui_MainWindow, QMainWindow):
     
+    refreshFrame = pyqtSignal(np.ndarray)
+    
     def __init__(self, *args, **kwargs):
         QMainWindow.__init__(self, *args, **kwargs)
-        
+        img = Image.open("./lena_std.tif")
+        img.load()
+        self.frameData = np.asarray( img.convert('L'), dtype="int32" )
         self.setupUi(self)
+        
+        # This is call to update new frame
+        self.refreshFrame.emit(self.frameData)
     
+    def setupUi(self, MainWindow):
+        Ui_MainWindow.setupUi(self, MainWindow)
+        
+        self.cameraView = pg.ImageView()
+        self.cameraView.ui.roiBtn.hide()
+        self.cameraView.ui.menuBtn.hide()
+        self.cameraViewFrame.layout().addWidget(self.cameraView)
+        
+        self.graphDialog = pg.PlotWidget(title="My nice title")
+        self.graphDialog.setLabel("bottom", "Point")
+        self.graphDialog.showGrid(x=True, y=True, alpha=0.1)
+        
+        self.graphViewFrame.layout().addWidget(self.graphDialog)
+        
+        # Connecting pyqtSignal to it's pyqtSlot
+        self.refreshFrame.connect(self.frameUpdate)
+        
     def onCloseAccept(self):
         pass
+    
+    @pyqtSlot(np.ndarray)
+    def frameUpdate(self, frameData):
+        self.frameData = frameData
+        self.cameraView.setImage(self.frameData)       
     
     def resetRoi(self):
         print("reset ROI button clicked")
@@ -45,7 +79,7 @@ class MainWindow(Ui_MainWindow, QMainWindow):
         
         print("Snap button clicked, save it in the file %s" % saveFilePath)
         
-    def startRdClicked(self):
+    def start(self):
         print("Start rd clicked")
         
     def refreshClicked(self):
